@@ -1,0 +1,35 @@
+version: '3'
+services:
+  scm:
+    image: "rafaelbarros/backend-scm:latest"
+    ports:
+      - "3030:3030"
+    networks:
+      - questcode_network
+  user:
+    image: "rafaelbarros/backend-user:latest"
+    ports:
+      - "3020:3020"
+    networks:
+      - questcode_network
+  mongodb_user:
+    image: mongo:6
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongodb_user_data:/data/db
+    networks:
+      - questcode_network
+  frontend:
+    image: "rafaelbarros/frontend:latest"
+    ports:
+      - "80:80"
+    networks:
+      - questcode_network
+
+volumes:
+  mongodb_user_data:
+
+networks:
+  questcode_network:
+    driver: bridge
