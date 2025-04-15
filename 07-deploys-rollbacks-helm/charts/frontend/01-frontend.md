@@ -1,7 +1,7 @@
-# Frontend Basic
+# Frontend 
 
 ## 1
 
 ```shell
-helm install . --name frontend
+helm install . --name frontend --namespace staging
 ```
