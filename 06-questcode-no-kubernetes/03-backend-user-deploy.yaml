@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-user
+  labels:
+    app: backend-user
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend-user
+  template:
+    metadata:
+      labels:
+        app: backend-user
+    spec:
+      containers:
+      - name: backend-user
+        image: rafaelbarros/backend-user:latest
+        ports:
+        - containerPort: 3020
+        env:
+          - name: NODE_ENV
+            value: "staging"
+          - name: MONGO_URI
+            value: "mongodb+srv://dbuser:5cQ6LfOvOjoLcF5O@questcode.mphga.mongodb.net"
+          - name: SECRET_OR_KEY
+            value: "b00tc@amp18"
