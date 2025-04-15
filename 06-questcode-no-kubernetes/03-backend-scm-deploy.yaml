@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-scm
+  labels:
+    app: backend-scm
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend-scm
+  template:
+    metadata:
+      labels:
+        app: backend-scm
+    spec:
+      containers:
+      - name: backend-scm
+        image: rafaelbarros/backend-scm:latest
+        ports:
+        - containerPort: 3030
+        env:
+          - name: NODE_ENV
+            value: "staging"
+          - name: SECRET_OR_KEY
+            value: "b00tc@amp18"
+          - name: GITHUB_CLIENT_ID
+            value: "f96fa240831bb126bb89"
+          - name: GITHUB_CLIENT_SECRET
+            value: "2a7d23cf320e714f9996cb72cc4ab87a3928ae4f"
