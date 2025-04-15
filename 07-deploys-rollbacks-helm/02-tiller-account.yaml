@@ -9,7 +9,7 @@ kind: ClusterRole
 metadata:
   name: allresources
 rules:
-- apiGroups: [""]
+- apiGroups: ["", "apps", "extensions", "batch", "rbac.authorization.k8s.io"]
   resources: ["*"]
   verbs: ["*"]
 ---
@@ -17,7 +17,6 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: tiller
-  namespace: kube-system
 subjects:
 - kind: ServiceAccount
   namespace: kube-system
