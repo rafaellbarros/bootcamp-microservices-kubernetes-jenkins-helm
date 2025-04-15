@@ -3,5 +3,8 @@
 # 1
 
 ```shell
-kubectl patch deployment tiller-deploy -n kube-system --patch "$(cat 02-tiller-patch.yaml)"
+helm init --service-account tiller
+
+# helm init
+# kubectl patch deployment tiller-deploy -n kube-system --patch "$(cat 02-tiller-patch.yaml)"
 ```
