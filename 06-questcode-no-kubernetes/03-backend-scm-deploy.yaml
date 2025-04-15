@@ -31,6 +31,12 @@ spec:
                 name: questcode
                 key: GITHUB_CLIENT_ID
           - name: SECRET_OR_KEY
-            value: "b00tc@amp18"
+            valueFrom:
+              secretKeyRef:
+                name: questcode
+                key: SECRET_OR_KEY
           - name: GITHUB_CLIENT_SECRET
-            value: "2a7d23cf320e714f9996cb72cc4ab87a3928ae4f"
+            valueFrom:
+              secretKeyRef:
+                name: questcode
+                key: GITHUB_CLIENT_SECRET

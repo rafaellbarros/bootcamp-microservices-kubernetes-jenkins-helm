@@ -26,6 +26,12 @@ spec:
                 name: questcode
                 key: NODE_ENV
           - name: MONGO_URI
-            value: "mongodb+srv://dbuser:5cQ6LfOvOjoLcF5O@questcode.mphga.mongodb.net"
+            valueFrom:
+              secretKeyRef:
+                name: questcode
+                key: MONGO_URI
           - name: SECRET_OR_KEY
-            value: "b00tc@amp18"
+            valueFrom:
+              secretKeyRef:
+                name: questcode
+                key: SECRET_OR_KEY
