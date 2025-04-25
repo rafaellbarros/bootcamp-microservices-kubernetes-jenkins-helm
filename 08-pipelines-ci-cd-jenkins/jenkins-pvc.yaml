@@ -1,0 +1,13 @@
+# jenkins-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: jenkins
+  namespace: devops
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: "manual-for-jenkins"  # Deve corresponder ao seu StorageClass
+  resources:
+    requests:
+      storage: 16Gi

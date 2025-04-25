@@ -1,4 +1,4 @@
----
+# jenkins-pv.yaml
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -13,16 +13,3 @@ spec:
     - ReadWriteOnce
   hostPath:
     path: "/mnt/data-jenkins"
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: jenkins
-  namespace: devops
-spec:
-  storageClassName: manual-for-jenkins
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 16Gi

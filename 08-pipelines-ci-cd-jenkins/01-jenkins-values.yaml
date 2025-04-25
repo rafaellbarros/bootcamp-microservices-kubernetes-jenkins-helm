@@ -1,9 +1,10 @@
 master:
   serviceType: NodePort
   nodePort: 30808
-  adminUser: admin
-  adminPassword: admin123
+  adminUser: "admin"
+  adminPassword: "admin123"  # Altere para sua senha desejada
 
 persistence:
   enabled: true
-  existingClaim: jenkins-pv-claim
+  existingClaim: "jenkins"
+
